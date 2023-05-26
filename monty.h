@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <stddef.h>
 #include <stdlib.h>
-
+#include <ctype.h>
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -57,9 +57,9 @@ help global;
 		{"swap", swap},   \
 		{"nop", nop},     \
 		{"div", _div},    \
-		{"mul", _mul},    \
-		{"add", _add},    \
-		{"sub", _sub},    \
+		{"mul", mul},     \
+		{"add", add},     \
+		{"sub", sub},     \
 		{"mod", mod},     \
 		{"pchar", pchar}, \
 		{"pstr", pstr},   \
@@ -87,13 +87,14 @@ void add(stack_t **stack, unsigned int line_count);
 void sub(stack_t **stack, unsigned int line_count);
 void mul(stack_t **stack, unsigned int line_count);
 void mod(stack_t **stack, unsigned int line_count);
+void nop(stack_t **stack, unsigned int line_count);
 
 void pchar(stack_t **stack, unsigned int line_count);
 void pstr(stack_t **stack, unsigned int line_count);
 void rotl(stack_t **stack, unsigned int line_count);
 void rotr(stack_t **stack, unsigned int line_count);
 
-void opcode(stack_t **stack, char *let, unsigned int n);
+void opcode(stack_t **stack, char *string, unsigned int line_count);
 
 int is_digit(char *str);
 int isnumber(char *string);
